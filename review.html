@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Page - EFFISM</title>
+    <style>
+      :root {
+        --primary: #055e6f;
+        --primary-light: #055e6f;
+        --primary-dark: #055e6f;
+        --accent-blue: #055e6f;
+        --primary-gradient: linear-gradient(135deg, #055e6f 0%, #089bb8 100%);
+        --secondary: #f8fafc;
+        --success: #10b981;
+        --accent: #10b981;
+        --bg-light: #f9fafb;
+        --bg-white: #ffffff;
+        --text: #1e293b;
+        --text-dark: #0f172a;
+        --text-medium: #475569;
+        --text-light: #94a3b8;
+        --text-muted: #94a3b8;
+        --border: #e2e8f0;
+        --border-light: #e8edf3;
+        --shadow-sm: rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow: rgba(0, 0, 0, 0.08);
+        --radius: 0.55rem;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --pending: #f59e0b;
+        --progress: #3b82f6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      html {
+        font-size: 14px;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text);
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+      }
+
+      /* Profile section */
+      .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .profile-info {
+        display: flex;
+        gap: 1.33rem;
+        align-items: center;
+      }
+
+      .profile-photo {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 0.55rem;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+
+      .profile-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .profile-name {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .profile-id {
+        color: var(--text-medium);
+        font-size: 0.95rem;
+      }
+
+      .profile-designation {
+        color: var(--primary);
+        font-weight: 500;
+        font-size: 1.05rem;
+      }
+
+      .profile-contact {
+        margin-top: 0.33rem;
+        display: flex;
+        gap: 1.067rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: var(--text-medium);
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 0.66rem;
+      }
+
+      .btn {
+        padding: 0.55rem 1rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        box-shadow: var(--shadow-md);
+        opacity: 0.9;
+      }
+
+      .btn-outline {
+        border: 1px solid var(--border);
+        background: var(--bg-white);
+        color: var(--text-medium);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--primary-light);
+        color: var(--primary);
+      }
+
+      /* Stats section */
+      .stats-card-container {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1rem 0.9rem;
+        border-radius: var(--radius);
+        background-color: var(--bg-light);
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+      }
+
+      .statCard-titleBadge-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .stat-title {
+        font-size: 0.867rem;
+        color: var(--text-medium);
+        font-weight: 500;
+      }
+
+      .stat-value {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .stat-badge {
+        padding: 0.267rem 0.533rem;
+        border-radius: var(--radius);
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .badge-success {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .badge-warning {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--warning);
+      }
+
+      /* Date and actions */
+      .date-action-btn-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .date-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .date-display {
+        padding: 0.533rem 1.067rem;
+        border-radius: var(--radius);
+        background-color: var(--bg-white);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.533rem;
+        cursor: pointer;
+      }
+
+      .icon-btn {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: var(--bg-light);
+        color: var(--text-medium);
+        cursor: pointer;
+      }
+
+      .icon-btn:hover {
+        background-color: var(--primary-light);
+        color: white;
+      }
+
+      .btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.333rem;
+        height: 1.333rem;
+      }
+
+      .action-btn-container {
+        display: flex;
+        gap: 1rem;
+      }
+
+      /* Chart and metrics */
+      .stats-chart-metrics-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--bg-white);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        box-shadow: 0 0 10px var(--shadow-sm);
+        border: 1px solid var(--border);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .card-title {
+        font-size: 1.067rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .stats-chart-container {
+        flex: 1;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      /* CPE Card */
+      .CPE-metric-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .CPE-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .CPE-stat-item {
+        padding: 0.667rem;
+        border-radius: var(--radius);
+        background-color: var(--bg-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        white-space: nowrap;
+        min-width: 13.5rem;
+        border: 1px solid var(--border-light);
+      }
+
+      .CPE-stat-label,
+      .CPE-stat-value {
+        flex-basis: 50%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .CPE-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-medium);
+      }
+
+      .CPE-stat-value {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        text-align: right;
+      }
+
+      /* Chart */
+      .chart-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .chart-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pie-chart {
+        width: 12rem;
+        height: 12rem;
+      }
+
+      .legend {
+        display: flex;
+        flex-direction: column;
+        gap: 0.533rem;
+        margin-left: 1.333rem;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .legend-color-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .legend-color {
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 2px;
+      }
+
+      .legend-label {
+        font-size: 0.867rem;
+        color: var(--text-medium);
+        white-space: nowrap;
+      }
+
+      .legend-value {
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      /* Daily metrics */
+      .daily-metric-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .daily-stats {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem;
+      }
+
+      .daily-stat-item {
+        padding: 0.667rem;
+        border-radius: var(--radius);
+        background-color: var(--bg-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        white-space: nowrap;
+        min-width: 11rem;
+        border: 1px solid var(--border-light);
+      }
+
+      .daily-stat-label,
+      .daily-stat-value {
+        flex-basis: 50%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .daily-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-medium);
+      }
+
+      .daily-stat-value {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        text-align: right;
+      }
+
+      /* Tables */
+      .modern-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-bottom: 1.067rem;
+      }
+
+      .modern-table th {
+        text-align: left;
+        padding: 0.8rem 1.067rem;
+        background-color: var(--bg-light);
+        color: var(--text-medium);
+        font-weight: 500;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .modern-table td {
+        padding: 0.8rem 1.067rem;
+        border-bottom: 1px solid var(--border-light);
+        color: var(--text);
+        white-space: nowrap;
+      }
+
+      .modern-table tr:hover {
+        background-color: var(--bg-light);
+      }
+
+      .modern-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Remarks section */
+      .remarks-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .common-tabs {
+        display: flex;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .common-tab {
+        padding: 0.667rem 1.333rem;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text-medium);
+        position: relative;
+      }
+
+      .common-tab.active {
+        color: var(--primary);
+      }
+
+      .common-tab.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+      }
+
+      /* Work plan section */
+      .workPlan-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.067rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 0.533rem;
+      }
+
+      .status-pill {
+        padding: 0.267rem 0.533rem;
+        border-radius: 1.333rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        display: inline-block;
+      }
+
+      .status-completed {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .status-pending {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--pending);
+      }
+
+      .status-progress {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--progress);
+      }
+
+      .task-table tr td:last-child,
+      .task-table tr th:last-child {
+        text-align: right;
+      }
+
+      .task-actions {
+        display: flex;
+        gap: 0.333rem;
+        justify-content: flex-end;
+      }
+
+      @media (max-width: 1200px) {
+        .stats-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .profile-info {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .daily-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Profile Header -->
+      <div class="card profile-header">
+        <div class="profile-info">
+          <img
+            src="/assets/review-assets/img/common/user.jpg"
+            alt="Employee Photo"
+            class="profile-photo"
+          />
+          <div class="profile-details">
+            <h1 class="profile-name">Abdul Raoof</h1>
+            <p class="profile-id">Employee Code: AG00005985</p>
+            <p class="profile-designation">Jr. Front end Developer</p>
+            <div class="profile-contact">
+              <div class="contact-item">📧 raoof@ariessolutions.com</div>
+              <div class="contact-item">📱 +91-9495217141</div>
+              <div class="contact-item">📍 KOCHI</div>
+            </div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-outline">View Profile</button>
+          <button class="btn btn-primary">View D&R</button>
+        </div>
+      </div>
+
+      <!-- Date Navigation & Action Buttons -->
+      <div class="date-action-btn-container">
+        <div class="date-nav">
+          <button class="icon-btn">
+            <div class="btn-icon">◀</div>
+          </button>
+          <div class="date-display"><i>📅</i> 12-04-2025</div>
+          <button class="icon-btn">
+            <div class="btn-icon">▶</div>
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-btn-container">
+          <button class="btn btn-outline">
+            <div class="btn-icon">🏆</div>
+            Appreciation
+          </button>
+
+          <button class="btn btn-outline">
+            <div class="btn-icon">🔒</div>
+            Lock
+          </button>
+
+          <button class="btn btn-outline">
+            <div class="btn-icon">📤</div>
+            Delegate Job
+          </button>
+
+          <button class="btn btn-outline">
+            <div class="btn-icon">🗓️</div>
+            Weekly Plan
+          </button>
+
+          <button class="btn btn-outline">
+            <div class="btn-icon">📅</div>
+            Monthly Plan
+          </button>
+
+          <button class="btn btn-outline">
+            <div class="btn-icon">📊</div>
+            Last Day Summary
+          </button>
+        </div>
+      </div>
+
+      <div class="stats-chart-metrics-container">
+        <div class="stats-chart-container">
+          <!-- Stats Overview -->
+          <div class="card stats-card-container">
+            <div class="card-header">
+              <h2 class="section-title">Overall Metrics</h2>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="statCard-titleBadge-container">
+                  <div class="stat-title">Total Working Hours</div>
+                  <div class="stat-badge badge-success">This Month</div>
+                </div>
+                <div class="stat-value">78:04:00</div>
+              </div>
+              <div class="stat-card">
+                <div class="statCard-titleBadge-container">
+                  <div class="stat-title">Total Working Days</div>
+                  <div class="stat-badge badge-success">This Month</div>
+                </div>
+                <div class="stat-value">9</div>
+              </div>
+              <div class="stat-card">
+                <div class="statCard-titleBadge-container">
+                  <div class="stat-title">Late Reporting</div>
+                  <div class="stat-badge badge-success">This Month</div>
+                </div>
+                <div class="stat-value">0</div>
+              </div>
+              <div class="stat-card">
+                <div class="statCard-titleBadge-container">
+                  <div class="stat-title">Achieved Training Hours</div>
+                  <div class="stat-badge badge-warning">2025</div>
+                </div>
+                <div class="stat-value">4:19</div>
+              </div>
+            </div>
+          </div>
+          <!-- CPE Overview -->
+          <div class="card CPE-metric-card">
+            <div class="card-header">
+              <h2 class="section-title">CPE Metrics</h2>
+            </div>
+            <div class="CPE-stats">
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">General:</div>
+                <div class="CPE-stat-value">00:10:00</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Excess:</div>
+                <div class="CPE-stat-value">00:05:00</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Division:</div>
+                <div class="CPE-stat-value">02:00:00</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Excess:</div>
+                <div class="CPE-stat-value">08:47:30 AM</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">External:</div>
+                <div class="CPE-stat-value">05:47:40 PM</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Excess:</div>
+                <div class="CPE-stat-value">09:00:10</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Mandatory Hrs:</div>
+                <div class="CPE-stat-value">00:10:00</div>
+              </div>
+              <div class="CPE-stat-item">
+                <div class="CPE-stat-label">Additional Hrs:</div>
+                <div class="CPE-stat-value">00:05:00</div>
+              </div>
+            </div>
+          </div>
+          <!-- Chart Overview -->
+          <div class="card chart-card">
+            <div class="card-header">
+              <h2 class="section-title">Work Distribution</h2>
+            </div>
+            <div class="chart-container">
+              <div class="pie-chart">
+                <!-- SVG Pie Chart Placeholder -->
+                <svg width="180" height="180" viewBox="0 0 180 180">
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="transparent"
+                    stroke="#e2e8f0"
+                    stroke-width="20"
+                  />
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="transparent"
+                    stroke="#055e6f"
+                    stroke-width="20"
+                    stroke-dasharray="377 503"
+                    stroke-dashoffset="0"
+                  />
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="transparent"
+                    stroke="#10b981"
+                    stroke-width="20"
+                    stroke-dasharray="75.4 503"
+                    stroke-dashoffset="-377"
+                  />
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="transparent"
+                    stroke="#f59e0b"
+                    stroke-width="20"
+                    stroke-dasharray="25.15 503"
+                    stroke-dashoffset="-452.4"
+                  />
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="transparent"
+                    stroke="#ef4444"
+                    stroke-width="20"
+                    stroke-dasharray="25.15 503"
+                    stroke-dashoffset="-477.55"
+                  />
+                  <text
+                    x="90"
+                    y="90"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="#1e293b"
+                  >
+                    75%
+                  </text>
+                  <text
+                    x="90"
+                    y="110"
+                    text-anchor="middle"
+                    alignment-baseline="middle"
+                    font-size="12"
+                    fill="#475569"
+                  >
+                    Invoiceable
+                  </text>
+                </svg>
+              </div>
+              <div class="legend">
+                <div class="legend-item">
+                  <div class="legend-color-label">
+                    <div
+                      class="legend-color"
+                      style="background-color: #055e6f"
+                    ></div>
+                    <div class="legend-label">Invoiceable</div>
+                  </div>
+
+                  <div class="legend-value">75%</div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color-label">
+                    <div
+                      class="legend-color"
+                      style="background-color: #10b981"
+                    ></div>
+                    <div class="legend-label">Non-Invoiceable</div>
+                  </div>
+                  <div class="legend-value">15%</div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color-label">
+                    <div
+                      class="legend-color"
+                      style="background-color: #f59e0b"
+                    ></div>
+                    <div class="legend-label">Personal</div>
+                  </div>
+                  <div class="legend-value">5%</div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color-label">
+                    <div
+                      class="legend-color"
+                      style="background-color: #ef4444"
+                    ></div>
+                    <div class="legend-label">Marketing</div>
+                  </div>
+                  <div class="legend-value">5%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Daily Metrics -->
+        <div class="card daily-metric-card">
+          <div class="card-header">
+            <h2 class="section-title">Today's Metrics</h2>
+          </div>
+          <div class="daily-stats">
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Break:</div>
+              <div class="daily-stat-value">00:10:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Extra Break:</div>
+              <div class="daily-stat-value">00:05:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Home:</div>
+              <div class="daily-stat-value">02:00:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Night:</div>
+              <div class="daily-stat-value">08:47:30 AM</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Health:</div>
+              <div class="daily-stat-value">05:47:40 PM</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Site Travel:</div>
+              <div class="daily-stat-value">09:00:10</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Leave Hrs:</div>
+              <div class="daily-stat-value">00:10:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Punch In:</div>
+              <div class="daily-stat-value">00:05:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Punch Out:</div>
+              <div class="daily-stat-value">02:00:00</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Punch In:</div>
+              <div class="daily-stat-value">08:47:30 AM</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">In Time</div>
+              <div class="daily-stat-value">05:47:40 PM</div>
+            </div>
+            <div class="daily-stat-item">
+              <div class="daily-stat-label">Out Time:</div>
+              <div class="daily-stat-value">09:00:10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remarks & Review Section (Added before Work Plan) -->
+      <div class="card remarks-section">
+        <div class="card-header">
+          <h2 class="section-title">Feedback & Reviews</h2>
+          <div class="common-tabs">
+            <div class="common-tab active">Remarks Given To</div>
+            <div class="common-tab">Remarks Given By</div>
+            <div class="common-tab">Reviewed To</div>
+            <div class="common-tab">Reviewed By</div>
+          </div>
+        </div>
+
+        <!-- Remarks Given To (Active by default) -->
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Employee</th>
+              <th>Rating</th>
+              <th>Job</th>
+              <th>Remarks</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>11-04-2025</td>
+              <td>Sarah Johnson</td>
+              <td>Good</td>
+              <td>UI Design</td>
+              <td>Good progress on the UI design. Keep up the good work.</td>
+              <td>Thank you for the feedback!</td>
+            </tr>
+            <tr>
+              <td>10-04-2025</td>
+              <td>Michael Chen</td>
+              <td>Need Improvement</td>
+              <td>API Integration</td>
+              <td>
+                Please follow the API documentation carefully. Several endpoints
+                were missed.
+              </td>
+              <td>I'll review and fix it today.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Work Plan -->
+      <div class="card workPlan-section">
+        <div class="card-header">
+          <h2 class="section-title">Work Plan</h2>
+          <div class="common-tabs">
+            <div class="common-tab active">Newly Identified</div>
+            <div class="common-tab">Routine</div>
+            <div class="common-tab">Carry Forward</div>
+            <div class="common-tab">All Tasks</div>
+          </div>
+        </div>
+
+        <table class="modern-table task-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Task</th>
+              <th>Type</th>
+              <th>Job</th>
+              <th>Est Time</th>
+              <th>Act Time</th>
+              <th>Status</th>
+              <th>Target</th>
+              <th>Comments</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>EFFISM Review page: User details section design research</td>
+              <td>Invoiceable Web Design</td>
+              <td>EFFISM/2020/ESOL/EFFISM</td>
+              <td>01:00:00</td>
+              <td>00:45:00</td>
+              <td>
+                <span class="status-pill status-completed">Completed</span>
+              </td>
+              <td>00:45:00</td>
+              <td>test comment</td>
+              <td>
+                <div class="task-actions">
+                  <button class="icon-btn">
+                    <div
+                      class="btn-icon"
+                      style="line-height: 0.5; font-size: 0.8rem"
+                    >
+                      •<br />•<br />•
+                    </div>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>EFFISM Review page: User details section development</td>
+              <td>Invoiceable Website Development</td>
+              <td>EFFISM/2020/ESOL/EFFISM</td>
+              <td>02:00:00</td>
+              <td>01:30:00</td>
+              <td>
+                <span class="status-pill status-progress">In Progress</span>
+              </td>
+              <td>00:45:00</td>
+              <td>test comment</td>
+              <td>
+                <div class="task-actions">
+                  <button class="icon-btn">
+                    <div
+                      class="btn-icon"
+                      style="line-height: 0.5; font-size: 0.8rem"
+                    >
+                      •<br />•<br />•
+                    </div>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>EFFISM Review page: Time details section design research</td>
+              <td>Invoiceable Web Design</td>
+              <td>EFFISM/2020/ESOL/EFFISM</td>
+              <td>01:00:00</td>
+              <td>00:00:00</td>
+              <td><span class="status-pill status-pending">Pending</span></td>
+              <td>00:45:00</td>
+              <td>test comment</td>
+              <td>
+                <div class="task-actions">
+                  <button class="icon-btn">
+                    <div
+                      class="btn-icon"
+                      style="line-height: 0.5; font-size: 0.8rem"
+                    >
+                      •<br />•<br />•
+                    </div>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="text-align: right">
+          <p>Total : <strong> 08:10:00</strong></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

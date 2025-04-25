@@ -1,0 +1,301 @@
+.LoginHero_MainContainer {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  margin-bottom: unset;
+}
+
+.LoginHero_leftContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-green);
+
+  padding: 0rem 0rem 0rem 3rem;
+}
+
+.LoginHero_title {
+  font-size: 3.5rem;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.LoginHero_ForgotPasswordTitle {
+  font-size: 2.3rem;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.LoginHero_formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  width: 55%;
+}
+
+.forgotPasswordForm {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.forgotForm {
+  width: 85%;
+}
+
+.inputError_container > input {
+  all: unset;
+  background-color: transparent;
+  border-bottom: 1.5px solid var(--color-lightText);
+
+  width: 100%;
+  padding: 1rem 0;
+
+  color: var(--color-white);
+  font-size: 1.2rem;
+}
+
+.inputError_container > input::placeholder {
+  color: var(--color-lightText);
+  font-size: 1.2rem;
+}
+
+.formSubmit_container > input {
+  all: unset;
+  background-color: var(--color-white);
+  color: var(--color-green);
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  width: 100%;
+  padding: 0.7rem 0;
+  margin-top: 1rem;
+  border-radius: 3px;
+
+  text-align: center;
+}
+
+.login_slider-container {
+  position: relative;
+  position: absolute;
+  left: 35%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login_slider {
+  height: auto;
+  max-width: 100%;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.login_slider_img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.heroSwiper_btnMainContainer {
+  display: flex;
+  gap: 1.5rem;
+  z-index: 1000;
+  position: absolute;
+  bottom: -3%;
+  right: 32%;
+}
+
+.heroSwiper_btnContainer_btn {
+  display: flex;
+  background-color: var(--color-green);
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.2rem;
+}
+
+.heroSwiper_btnContainer_btnLeft {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.heroSwiper_btnContainer_btnRight {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.LoginHero_ForgotPassword {
+  color: var(--color-white);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.LoginHero_GoBack {
+  color: var(--color-white);
+  font-size: 1.05rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.LoginHero_ForgotPasswordTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.LoginHero_ForgotPasswordDesc {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  opacity: 0.7;
+  width: 80%;
+}
+
+.loginHero-form-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  min-width: 100%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+@media (max-width: 500px) {
+  .LoginHero_MainContainer {
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 19rem;
+  }
+  .LoginHero_leftContainer {
+    width: 100%;
+    padding: 9rem 1.5rem 5rem 1.5rem;
+    align-items: center;
+  }
+
+  .LoginHero_formContainer {
+    width: 100%;
+  }
+
+  .LoginHero_title {
+    font-size: 3.5rem;
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .inputError_container > input {
+    font-size: 1.6rem;
+  }
+
+  .inputError_container > input::placeholder {
+    font-size: 1.6rem;
+  }
+
+  .formSubmit_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .formSubmit_container > input {
+    font-size: 1.4rem;
+    padding: 0.8rem 0;
+    margin-top: 1rem;
+    width: 50%;
+  }
+
+  .login_slider-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 115%;
+    height: fit-content;
+  }
+
+  .login_slider {
+    height: 19rem;
+    max-width: 100%;
+  }
+
+  .login_slider_img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .heroSwiper_btnMainContainer {
+    display: flex;
+    gap: 2rem;
+    z-index: 1000;
+    position: absolute;
+    top: unset;
+    bottom: 1rem;
+    right: 32%;
+    height: fit-content;
+  }
+
+  .heroSwiper_btnContainer_btn {
+    display: flex;
+    background-color: var(--color-green);
+    padding: 0.3rem;
+    height: fit-content;
+  }
+
+  .heroSwiper_btnContainer_btnLeft {
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .heroSwiper_btnContainer_btnRight {
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .LoginHero_ForgotPassword {
+    text-align: center;
+  }
+
+  .loginHero-form-container {
+    align-items: center;
+  }
+
+  .LoginHero_title {
+    text-align: center;
+  }
+  .LoginHero_ForgotPasswordTitle {
+    text-align: center;
+  }
+  .LoginHero_GoBack {
+    text-align: center;
+  }
+  .LoginHero_ForgotPasswordTextContainer {
+    align-items: center;
+  }
+
+  .LoginHero_ForgotPasswordDesc {
+    text-align: center;
+  }
+
+  .login_sectionHeading_left {
+    text-align: center;
+  }
+}
+
+/* Animation */

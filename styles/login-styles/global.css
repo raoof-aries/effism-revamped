@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+::selection {
+  background-color: #d2c69e;
+  color: #172f49;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Fonts */
+
+  --font-main: "Montserrat", sans-serif;
+
+  /* Colors */
+
+  --color-green: #055e6f;
+  --color-white: #fdfdfe;
+  --color-lightText: #8fb0b7;
+  --color-green-rgba08: rgba(5, 94, 111, 0.7);
+
+  /* Padding */
+
+  /* Login Page */
+  --padding-login-leftContainer: 0rem 0rem 0rem 3rem;
+  --padding-login-section: 0rem 3rem;
+  --padding-login-footer: 2rem;
+  --margin-bottom: 0rem 0rem 2rem 0rem;
+  --margin-top-bottom: 2rem 0rem;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth !important;
+  font-family: var(--font-main);
+}
+
+a {
+  all: unset;
+}
+
+button {
+  all: unset;
+}
+
+body {
+  scroll-behavior: smooth !important;
+  background-color: var(--color-white);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-green);
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (max-width: 500px) {
+  .sectionContainer {
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,25 @@
+.loginFooter_container {
+  background-color: var(--color-green);
+  padding: var(--padding-login-footer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFooter_container > p {
+  color: var(--color-white);
+  font-weight: 400;
+  text-align: center;
+}
+
+.loginFooter_container a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.loginFooter_container a:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,99 @@
+.imageCard {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.imageCard_ImageWrapper {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.imageCard_ImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.imageCard:hover .imageCard_ImageWrapper img {
+  transform: scale(1.1);
+}
+
+.imageCard_Overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.department-tag {
+  background-color: var(--color-green-rgba08);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.imageCard_TextContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.imageCard_TextContainer h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.imageCard_TextContainer h5 {
+  font-size: 0.8rem;
+  color: var(--color-lightText);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.imageCard_TextContainer p {
+  font-size: 0.95rem;
+  color: #2c3e50;
+  line-height: 1.6;
+  margin: 10px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bestEmployee_header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

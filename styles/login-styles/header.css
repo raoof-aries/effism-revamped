@@ -1,0 +1,28 @@
+.loginNav_container {
+  position: absolute;
+  width: 100%;
+  padding: 2rem 3rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.loginNav_logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.login_logo {
+  height: 3rem;
+}
+
+@media (max-width: 500px) {
+  .loginNav_container {
+    justify-content: center;
+    z-index: 100;
+    padding: 2rem 1rem;
+  }
+}

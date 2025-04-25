@@ -1,0 +1,148 @@
+<div class="LoginHero_MainContainer">
+  <div class="LoginHero_leftContainer">
+    <div class="loginHero-form-container">
+      <h2 class="LoginHero_title">Login</h2>
+      <form id="loginFormSubmit" class="LoginHero_formContainer">
+        <div class="inputError_container">
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            id="username"
+          />
+        </div>
+        <div class="inputError_container">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+          />
+        </div>
+        <div class="formSubmit_container">
+          <input type="submit" value="LOGIN" />
+        </div>
+        <button
+          type="button"
+          class="LoginHero_ForgotPassword"
+          id="forgotPasswordBtn"
+        >
+          Forgot Password?
+        </button>
+      </form>
+
+      <div id="forgotPasswordForm" style="display: none">
+        <div class="LoginHero_ForgotPasswordTextContainer">
+          <h2 class="LoginHero_ForgotPasswordTitle">Forgot Password?</h2>
+          <p class="LoginHero_ForgotPasswordDesc">
+            Enter your username below to retrieve your account
+          </p>
+        </div>
+
+        <form
+          class="LoginHero_formContainer forgotForm"
+          id="forgotPasswordFormSubmit"
+        >
+          <div class="inputError_container">
+            <input
+              type="text"
+              placeholder="Username"
+              name="email"
+              id="forgotUsername"
+            />
+          </div>
+          <div class="formSubmit_container">
+            <input type="submit" value="RESET" />
+          </div>
+          <button type="button" class="LoginHero_GoBack" id="goBackToLoginBtn">
+            Go Back to Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="login_slider-container">
+    <div class="swiper login_slider" id="loginSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+        <div class="swiper-slide login_slider_slide">
+          <img
+            class="login_slider_img"
+            src="assets/login-assets/images/LoginPage/test.png"
+            alt="Test Image"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="heroSwiper_btnMainContainer">
+      <button
+        class="heroSwiper_btnContainer_btn heroSwiper_btnContainer_btnLeft"
+        id="swiperPrevBtn"
+      >
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <button
+        class="heroSwiper_btnContainer_btn heroSwiper_btnContainer_btnRight"
+        id="swiperNextBtn"
+      >
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
